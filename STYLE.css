@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+
+.headerhomepagina {
+	padding-top:25px;
+    text-align:center;
+	padding-right:30px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.aboutme {
+	text-align:center;
+	padding-right:40px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.klik {
+	max-width: 100%;
+	height:auto;
+	margin-top:4%;
+	
+}
+
+.huis3D {padding-left: 120px; padding-right: 30px;}
+.halfplat {padding-left:50px; padding-right: 30px;} 
+.HUISFILM {padding-left: 40px;  padding-right: 40px; position:relative; top:9px;}
+.huisplat {position:relative; top: 12px; padding-left: 40px; margin-right:10%;}
+
+
+
+
