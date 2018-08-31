@@ -11,7 +11,7 @@
   position: relative;
   margin: auto;
   overflow: hidden;
-	
+
 }
 
 /* Hide the images by default */
@@ -34,10 +34,10 @@
 }
 
 .lijn {
-	margin-top:-15px; 
+	margin-top:-15px;
 	padding-right:10px;
 }
-	
+
 .arrow2ndSlide {
 	position: fixed;
 	cursor:pointer;
@@ -47,19 +47,20 @@
 	text-align: center;
 	margin-left:auto;
 	margin-right:auto;
-    
+  z-index: 10;
+
 }
 
 .prev2ndslide {
  padding-right: 10px;
-	
+
 }
 
 .homebutton {
 	text-align: center;
 	margin-left:auto;
 	margin-right:auto;
-	
+
 }
 
 /* Next & previous buttons */
@@ -79,7 +80,7 @@
 
 /* Position the "next button" to the right */
 .next {
-	
+
   right:  0;
   border-radius: 3px 0 0 3px;
 }
@@ -103,7 +104,7 @@
 }
 
 #ogen {
-	padding-top:80px; 
+	padding-top:70px;
 }
 
 #plant2 {
@@ -112,11 +113,11 @@
 
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }

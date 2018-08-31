@@ -4,74 +4,74 @@
 <meta charset="UTF-8">
 <title>3D</title>
 <link href="CSSslideshow.css" rel="stylesheet" type="text/css">
-	
 
-<div class="titel"> 
-		<img src="slideshowbuttons/Middel 8.png" width="50" alt="3D"/> 
-<div class="lijn"> 
+
+<div class="titel">
+		<img src="slideshowbuttons/Middel 8.png" width="50" alt="3D"/>
+<div class="lijn">
 		<img src="slideshowbuttons/lijn.png" width="150" alt="lijn"/>
   </div>
 </div>
-	
+
 	<div class="homebutton"> <a href="Ellistolsma.html" target="_parent" title="HOME" </a> <img src="slideshowbuttons/home2.png"  onmouseover="this.src='slideshowbuttons/home.png'" onmouseout="this.src='slideshowbuttons/home2.png'"  alt="home"/> </div>
 </head>
 
 <body>
-	
-	
-	<div class="arrow2ndSlide"	> 
-	<a class="prev2ndslide" ><img src="slideshowbuttons/smollprev.png" onmouseover="this.src='slideshowbuttons/smollprev2.png'" onmouseout="this.src='slideshowbuttons/smollprev.png'" alt="prev2ndslide" /> </a>
-	
-	<a class="next2ndslide" ><img src="slideshowbuttons/smollnext.png" onmouseover="this.src='slideshowbuttons/smollnext2.png'" onmouseout="this.src='slideshowbuttons/smollnext.png'" alt="next2ndslide" /></a>
+
+
+	<div class="arrow2ndSlide"	>
+	<a class="prev2ndslide" onclick="togglePic('prev')" ><img src="slideshowbuttons/smollprev.png"/> </a>
+
+	<a class="next2ndslide" onclick="togglePic('next')" ><img src="slideshowbuttons/smollnext.png"/></a>
 	</div>
-	
-	
-	
-	<script type="text/javascript" src="JAVASCRIPTSLIDESHOW.js"></script>
+
+
+
+
 	<!-- Slideshow container -->
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
-    <img src="3D/ogen.jpg" onmouseover="this.src='3D/ogen2.jpg'" onmouseout="this.src='3D/ogen.jpg'" id="ogen" style="width:75%">
+    <img src="3D/ogen.jpg" data-gallery-item id="ogen" style="width:75%">
     <div class="text">Caption Text</div>
   </div>
 
   <div class="mySlides fade">
-    <img src="3D/plant1.jpg" onmouseover="this.src='3D/plant1.gif'" onmouseout="this.src='3D/plant1.jpg'" style="width:100%">
+    <img src="3D/plant1.jpg" data-gallery-item id="plant1" style="width:100%">
   </div>
 
   <div class="mySlides fade">
-    <img src="3D/plant2.jpg" onmouseover='this.src="3D/plant2.gif"' onmouseout="this.src='3D/plant2.jpg'" id="plant2" style="width:100%">
+    <img src="3D/plant2.jpg" data-gallery-item id="plant2" style="width:100%">
      </div>
-	
+
 <div class="mySlides fade">
-    <img src="3D/plant3.jpg" onmouseover="this.src='3D/plant3.gif'" onmouseout="this.src='3D/plant3.jpg'" id="plant3" style="width:100%">
+    <img src="3D/plant3.jpg" data-gallery-item id="plant3" style="width:100%">
   </div>
 
 	<div class="mySlides fade">
-    <img src="3D/rock1.jpg" onmouseover="this.src='3D/rock2.jpg'" onmouseout="this.src='3D/rock1.jpg'" id="rocks" style="width:70%">
+    <img src="3D/rock1.jpg" data-gallery-item id="rocks" style="width:70%">
   </div>
-	
+
 	<div class="mySlides fade">
-    <img src="3D/greek1.jpg" onmouseover="this.src='3D/greek2.jpg'" onmouseout="this.src='3D/greek1.jpg'" id="greek" style="width:50%">
+    <img src="3D/greek1.jpg" data-gallery-item id="greek" style="width:50%">
   </div>
-	
+
 	<div class="mySlides fade">
-    <img src="3D/rocketship.jpg" onmouseover="this.src='3D/rocketship2.jpg'" onmouseout="this.src='3D/rocketship.jpg'" id="rocketship" style="width:45%">
+    <img src="3D/rocketship.jpg" data-gallery-item id="rocketship" style="width:45%">
   </div>
-	
-	
+
+
 	<div class="mySlides fade">
-    <img src="3D/mushroom1.jpg" onmouseover="this.src='3D/mushroom2.jpg'" onmouseout="this.src='3D/mushroom1.jpg'" id="mushroom" style="width:100%">
+    <img src="3D/mushroom1.jpg" data-gallery-item id="mushroom" style="width:100%">
   </div>
-	
+
 <div class="mySlides fade">
-    <img src="3D/phone.jpg" onmouseover="this.src='3D/phone2.jpg'" onmouseout="this.src='3D/phone.jpg'" id="phone" style="width:65%"> </div>
-	
+    <img src="3D/phone.jpg" data-gallery-item id="phone" style="width:65%"> </div>
+
 <div class="mySlides fade">
-    <img src="3D/raam.jpg" onmouseover="this.src='3D/raam2.jpg'" onmouseout="this.src='3D/raam.jpg'" id="raam" style="width:45%"> </div>
-	
+    <img src="3D/raam.jpg" data-gallery-item  id="raam" style="width:45%"> </div>
+
 </div>
 <br>
 
@@ -81,11 +81,17 @@
 onmouseout="this.src='slideshowbuttons/prev.png'" alt="prev" </a>
   <a class="next" onclick="plusSlides(1)"><img src="slideshowbuttons/nex.png" onmouseover="this.src='slideshowbuttons/nex2.png'" onmouseout="this.src='slideshowbuttons/nex.png'" alt="next"/></a>
 	  </div>
-	
-	
 
 
-	
-	
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="JAVASCRIPTSLIDESHOW.js"></script> -->
+<script type="text/javascript" src="pictoggle.js"></script>
+
+
+
 </body>
 </html>
