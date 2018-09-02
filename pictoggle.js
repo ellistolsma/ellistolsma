@@ -8,21 +8,79 @@ The array of images can be as long as you want. It will continously loop.
 You will also need to attach Jquery CDN script link to bottom of each page.
 */
 const GALLERYMAP =  {
-    'ogen': ['3D/ogen.jpg','3D/ogen2.jpg'],
-    'plant1': ['3D/plant1.jpg','3D/plant1.gif'],
-    'plant2': ['3D/plant2.jpg','3D/plant2.gif'],
-    'plant3': ['3D/plant3.jpg','3D/plant3.gif'],
+    'ogen': {
+      'slides': ['3D/ogen.jpg','3D/plant1.jpg'],
+      'showHoverImage': true,
+      'hoverImage': '3D/ogen2.jpg',
+    },
+    'plant1': {
+      'slides': ['3D/plant1.jpg','3D/plant1.gif'],
+      'showHoverImage': false,
+      'hoverImage': null,
+    },
+    'plant2': {
+      'slides': ['3D/plant2.jpg','3D/plant2.gif'],
+      'showHoverImage': false,
+      'hoverImage': null,
+    },
+    'plant3': {
+      'slides': [],
+      'showHoverImage': false,
+      'hoverImage': null,
+    },
     // more go here
   }
 
+/*
+This function handles whether to attach the hover image when it is show and what image to
+display if appropriate.
+*/
+function handleHover(idx = null){
+  let $galleryItem = $('[data-gallery-item]:visible'); //get the actual Jquery DOM element
+  let galleryKey = $galleryItem.attr('id'); //get the id that will be match in GALLERYMAP
+  let currentSlide = $galleryItem.attr('src'); //get the item you are currently at in GALLERYMAP item
+  idx = idx ? idx : 0
+
+  // This block will check if the key is enabled for hovering and will allow the image to be show by attaching a class "enable-hover".
+  // Its just a marker and has no actual CSS. Only attaches on FIRST image and if property is enabled
+  if(idx === 0 && GALLERYMAP[galleryKey]['showHoverImage']) {
+    $galleryItem.addClass('enable-hover')
+  }else {
+    $galleryItem.hasClass('enable-hover') && $galleryItem.removeClass('enable-hover')
+  }
+
+  // This unbind will keep you event stack clean from scrolling through the gallery
+  $galleryItem.unbind('mouseover mouseout');
+  $galleryItem.mouseover(function(e){
+    if ($(this).hasClass('enable-hover')) {
+        $galleryItem.attr('src', GALLERYMAP[galleryKey]['hoverImage'] )
+    }
+    e.preventDefault();
+  })
+
+  $galleryItem.mouseout(function(e){
+    if ($(this).hasClass('enable-hover')) {
+        $galleryItem.attr('src', GALLERYMAP[galleryKey]['slides'][0] )
+    }
+    e.preventDefault();
+  })
+}
+
 function togglePic(direction) {
   let nextUp = 0;
-  let galleryItem = $('[data-gallery-item]:visible'); //get the actual Jquery DOM element
-  let galleryKey = galleryItem.attr('id'); //get the id that will be match in GALLERYMAP
-  let currentSlide = galleryItem.attr('src'); //get the item you are currently at in GALLERYMAP item
-  let idx = GALLERYMAP[galleryKey].indexOf(currentSlide)
-  let galleryLength = GALLERYMAP[galleryKey].length
+  let $galleryItem = $('[data-gallery-item]:visible'); //get the actual Jquery DOM element
+  let galleryKey = $galleryItem.attr('id'); //get the id that will be match in GALLERYMAP
+  let currentSlide = $galleryItem.attr('src'); //get the item you are currently at in GALLERYMAP item
+  let idx = GALLERYMAP[galleryKey]['slides'].indexOf(currentSlide)
+  let galleryLength = GALLERYMAP[galleryKey]['slides'].length
 
+  nextUp = handleNextOrPrev(direction, idx, galleryLength)
+  handleHover(nextUp)
+
+  return $galleryItem.attr('src', GALLERYMAP[galleryKey]['slides'][nextUp] )
+}
+
+function handleNextOrPrev(direction, idx, galleryLength) {
   if(direction === 'next'){
     if( ++idx > (galleryLength-1) ){
       nextUp = 0
@@ -38,6 +96,12 @@ function togglePic(direction) {
       nextUp = --idx
     }
   }
-
-  return galleryItem.attr('src', GALLERYMAP[galleryKey][nextUp] )
+  return nextUp
 }
+
+
+// Do this on Pageload
+$(function(){
+  handleHover()
+  toggleSubSlideControls()
+})
